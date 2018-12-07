@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Box</title>
+    <style>
+        #box1{
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 5px;
+            height: 700px;
+            background-color: black;
+            position:relative;
+        }
+        #box2{
+            margin-left: 30px;
+            margin-top: 30px;
+            width:400px;
+            height:400px;
+            background-color: red;
+            position: absolute;
+            z-index: 2;
+        }
+        #box3{
+            margin-left: 60px;
+            margin-top: 60px;
+            width:400px;
+            height:400px;
+            background-color: blue;
+            position:absolute;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2"></div>
+        <div id="box3"></div>
+    </div>
+</body>
+</html>

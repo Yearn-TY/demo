@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 学生成绩 </title>
+</head>
+<body>
+    <script>
+         var student=new Array(7);
+         var i=0;
+         var g=0;
+         var sum=0;
+         sum=parseFloat(sum);
+         alert("请输入七个学生的成绩");
+         for(i=0;i<7;i++){
+            student[i]=prompt("请输入第"+(i+1)+"个学生的成绩");
+            student[i]=parseFloat(student[i]);
+             sum+= student[i];
+             if(student[i]<60) g++;
+         }
+         alert("这七个学生总分是："+sum+"分");
+         alert("这七个学生的平均分是："+sum/7+"分");
+         alert("不及格的有："+g+"个");
+
+    </script>
+</body>
+</html>

