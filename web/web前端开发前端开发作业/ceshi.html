@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ceshi</title>
+    <style>
+        .container{
+            background-color:red;
+            text-align:center;
+
+        }
+        .container>span{
+
+        }
+        .container>div{
+
+        }
+
+    </style>
+    <script>
+        //End at 17:05:00
+        var endTime=new Date();  //取电脑的时间不是服务器，用服务器时间最好
+        endTime.setFullYear(2018);
+        endTime.setFullMonth(2);
+        endTime
+        endTime.setHours(17);
+        endTime.setMinutes(5);
+        endTime.setSeconds(0);
+        var now =new Data();
+        //两个时间之间相差多少毫秒
+        var diff=endTime.getTime()-now.getTime();//back haomiao
+
+        var remainSeconds=diff/1000;//1s = 1000ms
+        var flag;
+        function showTime(){
+            var h=parseInt(remainSeconds/60/60);//除不尽会有小数（JS里特有的）
+            var m=parseInt(remainSeconds/60)%60;
+            var s=remainSeconds%60;
+            document.getElementById("hh").innerHTML=formatNumber(h);//
+            document.getElementById("mm").innerHTML=formatNumber(m);
+            document.getElementById("ss").innerHTML=formatNumber(s);
+            if(remainSeconds==0) clearInterval(flag);//停掉倒计时
+            remainSeconds--;
+        }
+        //格式化时间  不然会有小数
+        function formatNumber(num){
+            if(num<10){
+                return "0"+num;
+            }
+            return num;
+        }
+        // setInterval(函数名称，毫秒数)；每隔毫秒数调用一次
+        function start(){
+            if(remainSeconds<=0) return 0;
+            showTime();//先调用一次，让刷新开始就倒计
+            flag=setInterval(showTime,1000);//one 秒（一秒后才执行）
+        }
+    </script>
+</head>
+<body  onload="start()">
+    <div class="container">
+        当前场次
+        <div id="hh">00</div>  
+        <span>：</span>
+        <div id="mm">00</div>
+        <span>：</span> 
+        <div id="ss">00</div> 
+        开始抢购
+    </div>
+</body>
+</html>

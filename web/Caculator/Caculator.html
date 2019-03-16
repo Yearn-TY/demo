@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caculator</title>
+    <script src="Caculator.js"></script>
+</head>
+<body>
+    <div id="caculator" style="margin:0 auto;">
+        <table border="1">
+            <tr>
+                <td colspan="4"><input id="inp1" type="text" value="" name="xianshi"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0" name="" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="0" name="" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="0" name="" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="+" name="+" onclick="inputOper(this)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" name="7" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="8" name="8" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="9" name="9" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="-" name="-" onclick="inputOper(this)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" name="4" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="5" name="5" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="6" name="6" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="*" name="*" onclick="inputOper(this)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" name="1" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="2" name="2" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="3" name="3" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="/" name="/" onclick="inputOper(this)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Clear" name="Clear" onclick="inputPCB(this)"></td>
+                <td><input type="button" value="0" name="0" onclick="inputEvent(this)"></td>
+                <td><input type="button" value="Back" name="Back" onclick="inputPCB(this)"></td>
+                <td><input type="button" value="=" name="=" onclick="inputEquel(this)"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

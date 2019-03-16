@@ -1,0 +1,98 @@
+/* 初始化 */
+*{
+    margin:0;
+    padding:0;
+}
+ol,ul{
+    list-style-type: none;
+}
+a{
+    color:#666;
+    text-decoration:none;
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+#top,#header,#nav,#banner,#star,#accesssory,#world,#serve,#after_sale,#footer{
+    height:100px;
+    width:100%;
+    border: 1px solid #000;
+}
+.container{
+    width: 1280px;
+    border: 1px solid #f00;
+    margin: 0px auto;
+}
+/* define top */
+#top{
+    height:5px;
+    background-color: #00925F;
+}
+#header{
+    height:30px;
+}
+#header .xlwb{
+    width:20px;
+    height:17px;
+    background-image: url("../img/icons.png") no-repeat -47px -95px;
+}
+#header .txwb{
+    width:20px;
+    height:20px;
+    background-image:url("../img/icons.png") no-repeat -27px -92px;
+}
+#header .header_left div{
+    float:left;
+}
+#header ul li{
+    float:left;
+}
+#header 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
